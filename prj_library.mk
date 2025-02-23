@@ -8,5 +8,6 @@ I_HDD00			:= $(HOME)/iHDD00
 MK_RACCOON_DIR		:= $(I_HDD00)/08.PROJECT/mk-raccoon
 
 OPT			:= 0
+CFLAGS			+= -Wall -Werror -Wextra -Wno-unused-parameter
 
 include $(MK_RACCOON_DIR)/gcc_library.mk
