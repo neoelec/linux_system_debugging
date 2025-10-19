@@ -10,6 +10,7 @@ void *foo(void *data)
     char *p;
 
     p = strtok(ip, sep);
+
     while (p) {
         printf("[%s]\n", p);
         p = strtok(0, sep);
@@ -25,6 +26,7 @@ void *bar(void *data)
     char *p;
 
     p = strtok(hp, sep);
+
     while (p) {
         printf("[%s]\n", p);
         p = strtok(0, sep);

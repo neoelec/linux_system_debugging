@@ -1,4 +1,5 @@
-// SPDX-License-Identifier: GPL-2.0
+/* SPDX-License-Identifier: GPL-2.0 */
+
 /*
  * hello-4.c - Demonstrates module documentation.
  */
@@ -13,6 +14,7 @@ MODULE_DESCRIPTION("A sample driver");
 static int __init init_hello_4(void)
 {
 	pr_info("Hello, world 4\n");
+
 	return 0;
 }
 

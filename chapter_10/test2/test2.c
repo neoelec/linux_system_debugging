@@ -23,8 +23,9 @@ int sum(int from, int to)
     int i;
     int total = 0;
 
-    for (i = from; i < to; i++)
+    for (i = from; i < to; i++) {
         total += i;
+    }
 
     return total;
 }

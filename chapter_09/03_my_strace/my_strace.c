@@ -16,6 +16,7 @@ int read_addr_into_buff(const pid_t pid, const unsigned long long addr,
     unsigned long ret;
 
     memset(buff, '\0', buff_size);
+
     do {
         ret = ptrace(PTRACE_PEEKTEXT, pid, (read_addr++), NULL);
         *(copy_addr++) = ret;
@@ -42,14 +43,17 @@ int main(int argc, char *argv[])
 
     while (1) {
         wait(&status);
-        // printf("%x\n", status );
+
+        /* printf("%x\n", status ); */
         if (WIFSIGNALED(status)) {
             fprintf(stderr, "child %d was abnormal exit.\n", pid);
+
             return -1;
         }
 
         if (WIFEXITED(status)) {
             fprintf(stderr, "child %d was normal exit.\n", pid);
+
             return -1;
         }
 
@@ -70,7 +74,7 @@ int main(int argc, char *argv[])
         }
 
         ptrace(PTRACE_SYSCALL, pid, 0, 0);
-        // getchar();
+        /* getchar(); */
     }
 
     return 0;

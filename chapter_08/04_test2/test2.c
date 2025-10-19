@@ -7,7 +7,7 @@ int main(int argc, char *argv[])
 
     printf("p=%p\n", p);
     printf("q=%p\n", q);
-    *p = 'a'; // runtime error
+    *p = 'a'; /* runtime error */
     p = "world";
 
     return 0;

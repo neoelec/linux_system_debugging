@@ -159,10 +159,12 @@ void __sub_dump_mem(const struct dump_mem *mem)
 
     ptr = (~0xFUL) & mem->base;
     line = 0;
+
     do {
         long end = ptr + 16;
 
         printf(mem_format2, ptr);
+
         while (ptr < end) {
             printf(mem_format3, *(char *)ptr);
             ptr++;
@@ -170,11 +172,13 @@ void __sub_dump_mem(const struct dump_mem *mem)
 
         putchar('"');
         ptr -= 16;
+
         while (ptr < end) {
-            if (isprint(*(char *)ptr))
+            if (isprint(*(char *)ptr)) {
                 putchar(*(char *)ptr);
-            else
+            } else {
                 putchar('.');
+            }
 
             ptr++;
         }

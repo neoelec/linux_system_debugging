@@ -7,7 +7,7 @@ int main(int argc, char *argv[])
     printf("a=%s\n", a);
     *a = 'a';
     printf("a=%s\n", a);
-    a = "world"; // compile error
+    a = "world"; /* compile error */
 
     return 0;
 }

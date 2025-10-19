@@ -8,10 +8,12 @@ int main(int argc, char *argv[])
     int i = 0;
 
     fd = open("/tmp/foo", O_RDONLY);
-    if (fd < 0)
+
+    if (fd < 0) {
         i = 5;
-    else
+    } else {
         i = 2;
+    }
 
     return i;
 }

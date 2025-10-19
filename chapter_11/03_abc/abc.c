@@ -25,8 +25,9 @@ int main(int argc, char *argv[])
 {
     int ret = 0;
 
-    if (argc > 1)
+    if (argc > 1) {
         ret = atoi(argv[1]);
+    }
 
     printf("%d\n", getpid());
     ret += a();

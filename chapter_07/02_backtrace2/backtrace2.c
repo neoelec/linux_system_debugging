@@ -11,6 +11,7 @@ void print_gnu2_backtrace(void)
     size_t i = 0;
 
     printf("Stack backtrace:\n");
+
     while ((unsigned long)frame & (~0x7)) {
         printf("%03zu : [ip=%p]\n", i++, frame->ip);
         frame = frame->fp;

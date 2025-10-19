@@ -13,6 +13,7 @@ void print_unw_backtrace(void)
     printf("Stack backtrace:\n");
     unw_getcontext(&uc);
     unw_init_local(&cursor, &uc);
+
     do {
         name[0] = '\0';
         unw_get_proc_name(&cursor, name, 256, &offp);

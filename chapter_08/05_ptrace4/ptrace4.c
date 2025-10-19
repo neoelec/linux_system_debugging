@@ -9,6 +9,7 @@ int main(int argc, char *argv[])
     pid_t pid;
     long ret;
     struct user_regs_struct regs;
+
     union {
         unsigned long l;
         unsigned char c[0];
@@ -26,11 +27,13 @@ int main(int argc, char *argv[])
     for (i = 0; i < 300; i++) {
         data.l = ptrace(PTRACE_PEEKDATA, pid, regs.rsp + i * 8, 0);
         printf("%.16lx : ", (unsigned long)regs.rsp + i * 8);
+
         for (j = 0; j < sizeof(data); j++) {
-            if (isprint(data.c[j]))
+            if (isprint(data.c[j])) {
                 printf("%c ", data.c[j]);
-            else
+            } else {
                 printf(". ");
+            }
         }
 
         printf("%.16lx\n", data.l);
