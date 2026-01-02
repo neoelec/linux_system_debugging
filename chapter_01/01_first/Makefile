@@ -1,5 +1,5 @@
 TARGET			:= first
 
-ASRCS			:= $(TARGET).S
+ASRCS			:= $(TARGET).$(shell uname -m).S
 
 include ../../prj_native.mk

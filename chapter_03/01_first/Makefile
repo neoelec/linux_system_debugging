@@ -1,6 +1,6 @@
 TARGET			:= first
 
-ASRCS			:= $(TARGET).S
+ASRCS			:= $(TARGET).$(shell uname -m).S
 
 CSRCS			+= asm_io.c
 CSRCS			+= asm_glue.c

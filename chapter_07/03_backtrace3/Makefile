@@ -1,6 +1,6 @@
 TARGET			:= backtrace3
 
-CSRCS			:= $(TARGET).c
+CSRCS			:= $(TARGET).$(shell uname -m).c
 CSRCS			+= backtrace_main3.c
 
 CFLAGS			:= -fno-omit-frame-pointer

@@ -57,7 +57,7 @@ int main(int argc, char *argv[])
             return -1;
         }
 
-        ptrace(PTRACE_GETREGS, pid, 0, &regs);
+        ptrace(PTRACE_GETREGSET, pid, 0, &regs);
 
         if (regs.orig_rax == SYS_open) {
             if (flag == 0) {

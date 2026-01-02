@@ -1,6 +1,6 @@
 TARGET			:= sub6
 
-ASRCS			:= $(TARGET).S
+ASRCS			:= $(TARGET).$(shell uname -m).S
 
 CSRCS			+= main6.c
 CSRCS			+= asm_io.c

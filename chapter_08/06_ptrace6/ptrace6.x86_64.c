@@ -29,7 +29,7 @@ int main(int argc, char *argv[])
         return -1;
     }
 
-    ret = ptrace(PTRACE_GETREGS, pid, 0, &regs);
+    ret = ptrace(PTRACE_GETREGSET, pid, 0, &regs);
     printf("return : %ld\n", ret);
     printf("stack rsp = %p\n", (void *)regs.rsp);
     printf("rip       = %p\n", (void *)regs.rip);

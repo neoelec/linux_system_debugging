@@ -1,7 +1,7 @@
 TARGET			:= sub4
 
-ASRCS			:= $(TARGET).S
-ASRCS			+= main4.S
+ASRCS			:= $(TARGET).$(shell uname -m).S
+ASRCS			+= main4.$(shell uname -m).S
 
 CSRCS			+= asm_io.c
 CSRCS			+= asm_glue.c

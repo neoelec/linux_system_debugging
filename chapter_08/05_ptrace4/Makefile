@@ -1,6 +1,6 @@
 TARGET			:= ptrace4
 
-CSRCS			:= $(TARGET).c
+CSRCS			:= $(TARGET).$(shell uname -m).c
 
 PTRACE_PNAME		:= hello2
 
