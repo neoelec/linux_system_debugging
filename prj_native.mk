@@ -7,6 +7,12 @@ MK_RACCOON_DIR		:= $(I_HDD00)/08.PROJECT/mk-raccoon
 VPATH			+= $(PRJ_NATIVE_MK_DIR)/src_c
 EXTRAINCDIRS		+= $(PRJ_NATIVE_MK_DIR)/inc
 
+HOSTYPE			:= $(shell uname -m)
+
+BINDIR			:= bin_$(HOSTYPE)
+OBJDIR			:= obj_$(HOSTYPE)
+
+CFLAGS			+= -DHOSTTYPE=$(HOSTYPE)
 CFLAGS			+= -Wextra
 CFLAGS			+= -Wno-unused-parameter
 CFLAGS			+= -Wno-unused-result
