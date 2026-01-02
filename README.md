@@ -39,3 +39,22 @@
 |**`x19`**-**`x28`**||<span style="color:blue">Callee</span>|
 |**`x29(FP)`**|Frame pointer|<span style="color:blue">Callee</span>|
 |**`x30(LR)`**|Procedure link register|<span style="color:blue">Callee</span>|
+
+## riscv64
+
+### 호출규약
+
+|Register|ABI Name|Use|Saved By|
+|-|-|-|-|
+|**`x0`**|**`zero`**|Hard-wired zero||
+|**`x1`**|**`ra`**|Return address|<span style="color:red">Caller</span>|
+|**`x2`**|**`sp`**|Stack pointer|<span style="color:blue">Callee</span>|
+|**`x3`**|**`gp`**|Global pointer||
+|**`x4`**|**`tp`**|Thred pointer||
+|**`x5`**-**`x7`**|**`t0`**-**`t2`**|Temporaries|<span style="color:red">Caller</span>|
+|**`x8`**|**`s0/fp`**|Saved register/frame pointer|<span style="color:blue">Callee</span>|
+|**`x9`**|**`s1`**|Saved register|<span style="color:blue">Callee</span>|
+|**`x10`** and **`x11`**|**`a0`** and **`a1`**|Function arguments/return values|<span style="color:red">Caller</span>|
+|**`x12`**-**`x17`**|**`a2`**-**`a7`**|Function arguments|<span style="color:red">Caller</span>|
+|**`x18`**-**`x27`**|**`s2`**-**`s11`**|Saved registers|<span style="color:blue">Callee</span>|
+|**`x28`**-**`x31`**|**`t3`**-**`t6`**|Temporaries|<span style="color:red">Caller</span>|
