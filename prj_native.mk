@@ -7,7 +7,7 @@ MK_RACCOON_DIR		:= $(I_HDD00)/08.PROJECT/mk-raccoon
 VPATH			+= $(PRJ_NATIVE_MK_DIR)/src_c
 EXTRAINCDIRS		+= $(PRJ_NATIVE_MK_DIR)/inc
 
-HOSTYPE			:= $(shell uname -m)
+HOSTYPE			?= $(shell uname -m)
 
 BINDIR			:= bin/$(HOSTYPE)
 OBJDIR			:= obj/$(HOSTYPE)
