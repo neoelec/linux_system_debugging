@@ -9,3 +9,7 @@ CFLAGS			+= -rdynamic
 LDFLAGS			:= -ldl
 
 include ../../prj_native.mk
+
+backtrace: $(ELF_FILE)
+	@$< $(TEST_FLAGS)
+
