@@ -6,20 +6,23 @@ CFLAGS			:= -pg
 
 include ../../prj_native.mk
 
-uftrace: $(OUTPUT)
-	uftrace --no-pager $(OUTPUT)
+uftrace: $(ELF_FILE)
+	uftrace --no-pager $<
 
-tc1: $(OUTPUT)
-	uftrace --no-pager -k $(OUTPUT)
+uftrace_kernel_tracing_1: $(ELF_FILE)
+	sudo uftrace --no-pager -k $<
 
-tc2: $(OUTPUT)
-	uftrace --no-pager -k -F *write@kernel $(OUTPUT)
+uftrace_kernel_tracing_2: $(ELF_FILE)
+	sudo uftrace --no-pager -k -F *write@kernel $<
 
-tc3: $(OUTPUT)
-	uftrace --no-pager -K 2 -F *write@kernel $(OUTPUT)
+uftrace_kernel_tracing_3: $(ELF_FILE)
+	sudo uftrace --no-pager -K 2 -F *write@kernel $<
 
-preload: $(OUTPUT)
-	LD_PRELOAD=../05_preload/bin/$(HOSTYPE)/preload.so.0.0.0 $(OUTPUT)
+uftrace_preload_1: $(OUTPUT)
+	LD_PRELOAD=../05_preload/bin/$(HOSTYPE)/preload.so.0.0.0 $<
 
-.PHONY: tc1 tc2 tc3
-.PHONY: utrace preload
+.PHONY: uftrace
+.PHONY: uftrace_kernel_tracing_1
+.PHONY: uftrace_kernel_tracing_2
+.PHONY: uftrace_kernel_tracing_3
+.PHONY: uftrace_preload_1

@@ -1,17 +1,19 @@
 all: 
 	@echo
 
-record1:
+uftrace_record_1:
 	uftrace --no-pager record $(shell which pwd)
 
-record2:
+uftrace_record_2:
 	uftrace --no-pager record --force $(shell which pwd)
 
-replay:
+uftrace_replay_1:
 	uftrace --no-pager replay
 
 clean:
 	@echo
 
 .PHONY: all
-.PHONY: record1 record2 replay
+.PHONY: uftrace_record_1
+.PHONY: uftrace_record_2
+.PHONY: uftrace_replay_1

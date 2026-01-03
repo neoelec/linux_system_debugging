@@ -6,35 +6,48 @@ CFLAGS			:= -pg -pthread
 
 include ../../prj_native.mk
 
-record: $(OUTPUT)
-	uftrace --no-pager record $(OUTPUT)
+UFTRACE_DATA		:= uftrace.data
 
-replay1: $(OUTPUT)
+$(UFTRACE_DATA): $(ELF_FILE)
+	uftrace --no-pager record $<
+
+uftrace_record_1: $(UFTRACE_DATA)
+
+uftrace_replay_1: $(UFTRACE_DATA)
 	uftrace --no-pager replay
 
-replay2: $(OUTPUT)
+uftrace_replay_2: $(UFTRACE_DATA)
 	uftrace --no-pager replay --column-view
 
-report1: $(OUTPUT)
+uftrace_report_1: $(UFTRACE_DATA)
 	uftrace --no-pager report
 
-report2: $(OUTPUT)
+uftrace_report_2: $(UFTRACE_DATA)
 	uftrace --no-pager report -s self
 
-report3: $(OUTPUT)
+uftrace_report_3: $(UFTRACE_DATA)
 	uftrace --no-pager report --avg-self
 
-graph_1: $(OUTPUT)
+uftrace_graph_1: $(UFTRACE_DATA)
 	uftrace --no-pager graph foo
 
-graph_2: $(OUTPUT)
+uftrace_graph_2: $(UFTRACE_DATA)
 	uftrace --no-pager graph
 
-info: $(OUTPUT)
+uftrace_info_1: $(UFTRACE_DATA)
 	uftrace --no-pager info
 
-.PHONY: record
-.PHONY: replay1 replay2
-.PHONY: report1 report2 report3
-.PHONY: graph_1 graph_2
-.PHONY: info
+uftrace_clean:
+	rm -rf $(UFTRACE_DATA)*
+
+clean: uftrace_clean
+
+.PHONY: uftrace_record_1
+.PHONY: uftrace_replay_1
+.PHONY: uftrace_replay_2
+.PHONY: uftrace_report_1
+.PHONY: uftrace_report_2
+.PHONY: uftrace_report_3
+.PHONY: uftrace_graph_1
+.PHONY: uftrace_graph_2
+.PHONY: uftrace_info_1

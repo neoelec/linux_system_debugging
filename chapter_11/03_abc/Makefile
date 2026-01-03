@@ -6,53 +6,66 @@ CFLAGS			:= -pg
 
 include ../../prj_native.mk
 
-tc1: $(OUTPUT)
-	uftrace --no-pager $(OUTPUT)
+uftrace: $(ELF_FILE)
+	uftrace --no-pager $<
 
-tc2: $(OUTPUT)
-	uftrace --no-pager -F a $(OUTPUT)
+uftrace_function_1: $(ELF_FILE)
+	uftrace --no-pager -F a $<
 
-tc3: $(OUTPUT)
-	uftrace --no-pager -N c $(OUTPUT)
+uftrace_notrace_1: $(ELF_FILE)
+	uftrace --no-pager -N c $<
 
-tc4: $(OUTPUT)
-	uftrace --no-pager -N ^get $(OUTPUT)
+uftrace_function_regex_1: $(ELF_FILE)
+	uftrace --no-pager -N ^get $<
 
-tc5: $(OUTPUT)
-	uftrace --no-pager -F ^get $(OUTPUT)
+uftrace_notrace_regex_1: $(ELF_FILE)
+	uftrace --no-pager -F ^get $<
 
-tc6: $(OUTPUT)
-	uftrace --no-pager -D 1 $(OUTPUT)
+uftrace_depth_1: $(ELF_FILE)
+	uftrace --no-pager -D 1 $<
 
-tc7: $(OUTPUT)
-	uftrace --no-pager -D 3 $(OUTPUT)
+uftrace_depth_2: $(ELF_FILE)
+	uftrace --no-pager -D 3 $<
 
-tc8: $(OUTPUT)
-	uftrace --no-pager -R a@retval $(OUTPUT)
+uftrace_retval_1: $(ELF_FILE)
+	uftrace --no-pager -R a@retval $<
 
-tc9: $(OUTPUT)
-	uftrace --no-pager -A main@arg1,arg2 $(OUTPUT)
+uftrace_argument_1: $(ELF_FILE)
+	uftrace --no-pager -A main@arg1,arg2 $<
 
-tc10: $(OUTPUT)
-	uftrace --no-pager -T a@depth=1 $(OUTPUT)
+uftrace_trigger_1: $(ELF_FILE)
+	uftrace --no-pager -T a@depth=1 $<
 
-tc11: $(OUTPUT)
-	uftrace --no-pager -T a@depth=2 $(OUTPUT)
+uftrace_trigger_2: $(ELF_FILE)
+	uftrace --no-pager -T a@depth=2 $<
 
-tc12: $(OUTPUT)
-	uftrace --no-pager -T a@time=10us $(OUTPUT)
+uftrace_trigger_3: $(ELF_FILE)
+	uftrace --no-pager -T a@time=10us $<
 
-tc13: $(OUTPUT)
-	uftrace --no-pager -T a@time=15us $(OUTPUT)
+uftrace_trigger_4: $(ELF_FILE)
+	uftrace --no-pager -T a@time=15us $<
 
-tc14: $(OUTPUT)
-	uftrace --no-pager -T getpid@trace-off $(OUTPUT)
+uftrace_trigger_5: $(ELF_FILE)
+	uftrace --no-pager -T getpid@trace-off $<
 
-tc15: $(OUTPUT)
-	uftrace --no-pager --disable -T getpid@trace-on $(OUTPUT)
+uftrace_trigger_6: $(ELF_FILE)
+	uftrace --no-pager --disable -T getpid@trace-on $<
 
-tc16: $(OUTPUT)
-	uftrace --no-pager -T getpid@color=red $(OUTPUT)
+uftrace_trigger_7: $(ELF_FILE)
+	uftrace --no-pager -T getpid@color=red $<
 
-.PHONY: tc1 tc2 tc3 tc4 tc5 tc6 tc7 tc8 tc9 tc10
-.PHONY: tc11 tc12 tc13 tc14 tc15 tc16
+.PHONY: uftrace_function_1
+.PHONY: uftrace_notrace_1
+.PHONY: uftrace_function_regex_1
+.PHONY: uftrace_notrace_regex_1
+.PHONY: uftrace_depth_1
+.PHONY: uftrace_depth_2
+.PHONY: uftrace_retval_1
+.PHONY: uftrace_argument_1
+.PHONY: uftrace_trigger_1
+.PHONY: uftrace_trigger_2
+.PHONY: uftrace_trigger_3
+.PHONY: uftrace_trigger_4
+.PHONY: uftrace_trigger_5
+.PHONY: uftrace_trigger_6
+.PHONY: uftrace_trigger_7
