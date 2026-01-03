@@ -15,7 +15,7 @@ int main(int argc, char *argv[])
     ret = ptrace(PTRACE_ATTACH, pid, 0, 0);
     printf("return : %ld\n", ret);
 
-    ptrace(PTRACE_GETREGSET, pid, 0, &regs);
+    ptrace(PTRACE_GETREGS, pid, 0, &regs);
     printf("stack = %p\n", (void *)regs.rsp);
 
     ptrace(PTRACE_POKEDATA, pid, 0x00007ffde0f70e21, 0x41414141);
