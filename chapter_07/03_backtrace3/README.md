@@ -1,6 +1,23 @@
 ## 7. BACKTRACE 구현
 
 ### Backtrace 구현 3
+- 원래 강의에서는 `getFP()` 라는 함수를 만들어서 하는데, 이게 컴파일러와 컴파일 옵션에 영향을 받는다.
+
+```c
+void **getFP(int dummy)
+{
+    void **fp = (void**)(&dummy + 5) ;
+    return fp;
+}
+```
+
+- Stack Frame의 구조를 이해하는 것이 목적이므로 `-fno-omit-frame-pointer` 컴파일 옵션을 사용해 **프레임 포인터** 를 사용하게 하고, 인라인 어셈블리로 **프레임 포인터** 를 직접 읽어 온다.
+
+```c
+    struct frame *frame;
+    __asm__ volatile("mov     %%rbp,%0" : "=r"(frame));
+```
+
 - riscv의 Stack Frame은 다른 아키텍쳐와 구조가 다르다.
   - 그림 출처: https://github.com/riscv-non-isa/riscv-elf-psabi-doc/issues/437
 
@@ -16,7 +33,7 @@ struct frame {
 |`FP`가 `struct frame` 의 **시작 주소** 가리킨다.|`FP`가 `struct frame` **시작 주소 + `sizeof(struct frame)`** 을 가리킨다.|
 |![stack_frame_0](./img/stack_frame_0.png)|![stack_frame_1](./img/stack_frame_1.png)|
 
-- 이러한 차이점으로, **Frame Pointer** 를 따라가는 Stack-Unwinding은 아래처럼 구현이 달라지게 된다.
+- 이러한 차이점으로, **프레이 포인터** 를 따라가는 Backtrace는 아래처럼 구현이 달라지게 된다.
   - riscv 의 경우 `1-object-offset)`을 빼준다.
 <table>
 <tr>
