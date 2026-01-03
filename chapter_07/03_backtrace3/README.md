@@ -30,8 +30,8 @@ struct frame {
 
 |x86_64 and aarch64|riscv64|
 |-|-|
-|`FP`가 `struct frame` 의 **시작 주소** 가리킨다.|`FP`가 `struct frame` **시작 주소 + `sizeof(struct frame)`** 을 가리킨다.|
-|![stack_frame_0](./img/stack_frame_0.png)|![stack_frame_1](./img/stack_frame_1.png)|
+|`FP`가 `struct frame` 의 **시작 주소** 를 가리킨다.|`FP`가 `struct frame` **시작 주소 + `sizeof(struct frame)`** 을 가리킨다.|
+|![stack_frame_0](./img/stack_frame_0.drawio.svg)|![stack_frame_1](./img/stack_frame_1.drawio.svg)|
 
 - 이러한 차이점으로, **프레이 포인터** 를 따라가는 Backtrace는 아래처럼 구현이 달라지게 된다.
   - riscv 의 경우 `1-object-offset)`을 빼준다.
