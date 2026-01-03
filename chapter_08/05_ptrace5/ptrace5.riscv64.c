@@ -30,6 +30,7 @@ int main(int argc, char *argv[])
 
     ptrace(PTRACE_POKEDATA, pid, addr, 0x41414141);
 
+    ptrace(PTRACE_CONT, pid, 0, 0);
     ptrace(PTRACE_DETACH, pid, 0, 0);
 
     return 0;
