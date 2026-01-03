@@ -7,10 +7,18 @@
 int main(int argc, char *argv[])
 {
     pid_t pid;
+    off_t addr;
     long ret;
     struct user_regs_struct regs;
 
+    if (argc < 3) {
+        fprintf(stderr, "Usage) %s <PID> <ADDR>\n", argv[0]);
+
+        return 1;
+    }
+
     pid = atoi(argv[1]);
+    addr = strtoul(argv[2], NULL, 16);
 
     ret = ptrace(PTRACE_ATTACH, pid, 0, 0);
     printf("return : %ld\n", ret);
@@ -18,7 +26,7 @@ int main(int argc, char *argv[])
     ptrace(PTRACE_GETREGS, pid, 0, &regs);
     printf("stack = %p\n", (void *)regs.rsp);
 
-    ptrace(PTRACE_POKEDATA, pid, 0x00007ffde0f70e21, 0x41414141);
+    ptrace(PTRACE_POKEDATA, pid, addr, 0x41414141);
 
     ptrace(PTRACE_DETACH, pid, 0, 0);
 

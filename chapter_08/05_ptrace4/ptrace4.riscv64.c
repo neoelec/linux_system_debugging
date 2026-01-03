@@ -19,6 +19,12 @@ int main(int argc, char *argv[])
     } data;
     size_t i, j;
 
+    if (argc < 2) {
+        fprintf(stderr, "Usage) %s <PID>\n", argv[0]);
+
+        return 1;
+    }
+
     pid = atoi(argv[1]);
 
     ret = ptrace(PTRACE_ATTACH, pid, 0, 0);
