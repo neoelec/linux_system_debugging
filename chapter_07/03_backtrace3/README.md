@@ -66,3 +66,12 @@ struct frame {
 </td>
 </tr>
 </table>
+
+#### x86_64
+![x86_64](./img/stack_frame.x86_64.png)
+
+#### aarch64
+![aarch64](./img/stack_frame.aarch64.png)
+
+#### riscv64
+![riscv64](./img/stack_frame.riscv64.png)
