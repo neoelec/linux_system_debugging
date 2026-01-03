@@ -6,4 +6,4 @@ void mcount(void)
     printf("%s()\n", __func__);
 }
 
-void _mcount(void) __attribute__ ((alias ("mcount")));
+void _mcount(void) __attribute__((alias("mcount")));
