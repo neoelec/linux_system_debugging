@@ -1,3 +1,5 @@
+#include <elf.h>
+#include <linux/uio.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/ptrace.h>
@@ -10,6 +12,10 @@ int main(int argc, char *argv[])
     off_t addr;
     long ret;
     struct user_regs_struct regs;
+    struct iovec io = {
+        .iov_base = &regs,
+        .iov_len = sizeof(regs),
+    };
 
     if (argc < 3) {
         fprintf(stderr, "Usage) %s <PID> <ADDR>\n", argv[0]);
@@ -23,8 +29,8 @@ int main(int argc, char *argv[])
     ret = ptrace(PTRACE_ATTACH, pid, 0, 0);
     printf("return : %ld\n", ret);
 
-    ptrace(PTRACE_GETREGSET, pid, 0, &regs);
-    printf("stack = %p\n", (void *)regs.sp);
+    ptrace(PTRACE_GETREGSET, pid, (void *)NT_PRSTATUS, &io);
+    printf("stack = 0x%.16llx\n", regs.sp);
 
     ptrace(PTRACE_POKEDATA, pid, addr, 0x41414141);
 

@@ -1,3 +1,5 @@
+#include <elf.h>
+#include <linux/uio.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -12,6 +14,10 @@ int main(int argc, char *argv[])
     int status;
     long ret;
     struct user_regs_struct regs;
+    struct iovec io = {
+        .iov_base = &regs,
+        .iov_len = sizeof(regs),
+    };
 
     if (!(pid = fork())) {
         ptrace(PTRACE_TRACEME, 0, 0, 0);
@@ -29,10 +35,10 @@ int main(int argc, char *argv[])
         return -1;
     }
 
-    ret = ptrace(PTRACE_GETREGSET, pid, 0, &regs);
+    ret = ptrace(PTRACE_GETREGSET, pid, (void *)NT_PRSTATUS, &io);
     printf("return : %ld\n", ret);
-    printf("stack rsp = %p\n", (void *)regs.sp);
-    printf("pc        = %p\n", (void *)regs.pc);
+    printf("stack sp  = 0x%.16llx\n", regs.sp);
+    printf("pc        = 0x%.16llx\n", regs.pc);
 
     ptrace(PTRACE_DETACH, pid, 0, 0);
     /* ptrace(PTRACE_KILL, pid, 0, 0); */
