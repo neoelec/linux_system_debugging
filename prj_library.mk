@@ -6,8 +6,8 @@ MK_RACCOON_DIR		:= $(I_HDD00)/08.PROJECT/mk-raccoon
 
 HOSTYPE			:= $(shell uname -m)
 
-BINDIR			:= bin_$(HOSTYPE)
-OBJDIR			:= obj_$(HOSTYPE)
+BINDIR			:= bin/$(HOSTYPE)
+OBJDIR			:= obj/$(HOSTYPE)
 
 CFLAGS			+= -Wextra
 CFLAGS			+= -Wno-unused-parameter
@@ -17,3 +17,9 @@ OPT			:= g
 
 include $(MK_RACCOON_DIR)/gcc_library.mk
 # include $(MK_RACCOON_DIR)/llvm_library.mk
+
+prj_clean:
+	rm -rf bin
+	rm -rf obj
+
+clean: prj_clean

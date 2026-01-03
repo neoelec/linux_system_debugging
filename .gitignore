@@ -11,10 +11,10 @@
 .gdbinit
 .vscode/
 Module.symvers
-bin_*/
+bin/
 gmon.out
 modules.order
-obj_*/
+obj/
 perf.data
 target.cmm
 uftrace.data/

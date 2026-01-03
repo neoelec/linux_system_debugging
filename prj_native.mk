@@ -9,8 +9,8 @@ EXTRAINCDIRS		+= $(PRJ_NATIVE_MK_DIR)/inc
 
 HOSTYPE			:= $(shell uname -m)
 
-BINDIR			:= bin_$(HOSTYPE)
-OBJDIR			:= obj_$(HOSTYPE)
+BINDIR			:= bin/$(HOSTYPE)
+OBJDIR			:= obj/$(HOSTYPE)
 
 CFLAGS			+= -DHOSTTYPE=$(HOSTYPE)
 CFLAGS			+= -Wextra
@@ -21,3 +21,9 @@ OPT			:= g
 
 include $(MK_RACCOON_DIR)/gcc_native.mk
 # include $(MK_RACCOON_DIR)/llvm_native.mk
+
+prj_clean:
+	rm -rf bin
+	rm -rf obj
+
+clean: prj_clean
