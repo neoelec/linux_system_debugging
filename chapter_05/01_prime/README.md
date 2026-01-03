@@ -5,4 +5,4 @@
 #### x86_64
 |Assemly|High-Level Language|
 |-|-|
-|![ASM](./img/prime.x86_64.svg)|![HLL](./img/prime_hll.x86_64.svg)|
+|![ASM](./img/prime.x86_64.png)|![HLL](./img/prime_hll.x86_64.png)|
