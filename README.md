@@ -2,6 +2,11 @@
 - 너구리 순진한 맛의 연습 공간
 - https://www.inflearn.com/course/리눅스-시스템-디버깅
 
+## Reference
+- [PC Assebly Language](https://pacman128.github.io/pcasm/): Chapter 01 - 06
+- [열씨미와 게을러의 리눅스 개발 노하우 탐험기](https://www.yes24.com/product/goods/2817871): Chapter 07
+- [The Linux Kernel Module Programming Guide](https://sysprog21.github.io/lkmpg/): Chapter 13
+
 ## x86_64
 
 ### 호출규약
