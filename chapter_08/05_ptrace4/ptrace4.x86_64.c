@@ -29,11 +29,11 @@ int main(int argc, char *argv[])
     printf("return : %ld\n", ret);
 
     ptrace(PTRACE_GETREGS, pid, 0, &regs);
-    printf("stack = %p\n", (void *)regs.rsp);
+    printf("stack = 0x%.16llx\n", regs.rsp);
 
     for (i = 0; i < 300; i++) {
         data.l = ptrace(PTRACE_PEEKDATA, pid, regs.rsp + i * 8, 0);
-        printf("%.16lx : ", (unsigned long)regs.rsp + i * 8);
+        printf("%.16llx : ", regs.rsp + i * 8);
 
         for (j = 0; j < sizeof(data); j++) {
             if (isprint(data.c[j])) {

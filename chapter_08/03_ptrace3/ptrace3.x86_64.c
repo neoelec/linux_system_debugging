@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
     printf("return : %ld\n", ret);
 
     ptrace(PTRACE_GETREGS, pid, 0, &regs);
-    printf("stack = %p\n", (void *)regs.rsp);
+    printf("stack = 0x%.16llx\n", regs.rsp);
 
     for (i = 0; i < 20; i++) {
         data = ptrace(PTRACE_PEEKDATA, pid, regs.rsp + i * 8, 0);
