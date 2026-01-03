@@ -6,6 +6,8 @@
 - [PC Assebly Language](https://pacman128.github.io/pcasm/): Chapter 01 - 06
 - [열씨미와 게을러의 리눅스 개발 노하우 탐험기](https://www.yes24.com/product/goods/2817871): Chapter 07
 - [The Linux Kernel Module Programming Guide](https://sysprog21.github.io/lkmpg/): Chapter 13
+- [Compiler Explorer](https://godbolt.org): HLL 로부터 다양한 아키텍쳐의 어셈블리어를 생성해 비교해 볼 수 있다.
+- [Project F](https://projectf.io/): RISC-V Assembler 공개강좌
 
 ## x86_64
 
