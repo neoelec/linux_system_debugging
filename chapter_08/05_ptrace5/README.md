@@ -1,8 +1,8 @@
-# 8. PTRACE
+## 8. PTRACE
 
-## Process 메모리 쓰기
+### Process 메모리 쓰기
 
-### 05_hello2
+#### 05_hello2
 - 콘솔창을 하나 더 연 후, 05_hello2 를 먼저 실행한다.
 
 ```shell
@@ -16,7 +16,7 @@ hello!
 ...
 ```
 
-### 05_ptrace4
+#### 05_ptrace4
 - 05_ptrac4를 실행해서 'hello!' 문자열이 저장된 주소를 알아낸다.
 
 ```shell
@@ -37,7 +37,7 @@ stack = 0x7ffe92f88f50
 ...
 ```
 
-### 05_ptrace5
+#### 05_ptrace5
 - 05_ptrac5을 실행 할 때, 05_ptrace4를 통해 알아낸 'hello!' 문자열의 주소를 `TARGET_ADDR=` 를 이용해 전달한다.
 ```shell
 TARGET_ADDR=0x00007ffe92f88fd9 make ptrace
