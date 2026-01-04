@@ -1,13 +1,13 @@
 #include <math.h>
+#include <stddef.h>
 
 #define N 10000000UL
 
-#define USELESSNESS(n)            \
-    do {                          \
-        unsigned long i;          \
-        double x = 42;            \
-        for (i = 0; i < (n); i++) \
-            x = sin(x);           \
+#define USELESSNESS(n)                   \
+    do {                                 \
+        double x = 42;                   \
+        for (size_t i = 0; i < (n); i++) \
+            x = sin(x);                  \
     } while (0)
 
 void baz(void)

@@ -2,8 +2,6 @@ TARGET			:= perf_test
 
 CSRCS			:= $(TARGET).c
 
-LDFLAGS			:= -lm
-
 include ../../prj_native.mk
 
 perf: $(OUTPUT)
