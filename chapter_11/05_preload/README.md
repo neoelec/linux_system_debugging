@@ -4,7 +4,7 @@
 
 #### `mcount()` or `_mcount()`
 - 아키텍쳐에 따라 `mcount()` 가 이용되는 경우도 있고, `_mcount()` 가 이용되는 경우도 있다.
-- `HOSTTYPE` 환경변수를 이용해 플래그 처리를 할 수도 있지만, 그냥 `alias`를 사용한다.
+- `HOST_ARCH` 환경변수를 이용해 플래그 처리를 할 수도 있지만, 그냥 `alias`를 사용한다.
 
 ```c
 void mcount(void)

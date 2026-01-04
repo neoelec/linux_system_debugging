@@ -4,10 +4,10 @@ PRJ_LIBRARY_MK_DIR	:= $(shell dirname $(PRJ_LIBRARY_MK_FILE))
 I_HDD00			:= $(HOME)/iHDD00
 MK_RACCOON_DIR		:= $(I_HDD00)/08.PROJECT/mk-raccoon
 
-HOSTYPE			?= $(shell uname -m)
+TARGET_ARCH		?= $(shell uname -m)
 
-BINDIR			:= bin/$(HOSTYPE)
-OBJDIR			:= obj/$(HOSTYPE)
+BINDIR			:= bin/$(TARGET_ARCH)
+OBJDIR			:= obj/$(TARGET_ARCH)
 
 CFLAGS			+= -Wextra
 CFLAGS			+= -Wno-unused-parameter

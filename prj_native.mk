@@ -7,12 +7,19 @@ MK_RACCOON_DIR		:= $(I_HDD00)/08.PROJECT/mk-raccoon
 VPATH			+= $(PRJ_NATIVE_MK_DIR)/src_c
 EXTRAINCDIRS		+= $(PRJ_NATIVE_MK_DIR)/inc
 
-HOSTYPE			?= $(shell uname -m)
+HOST_ARCH		:= $(shell uname -m)
+TARGET_ARCH		?= $(HOST_ARCH)
 
-BINDIR			:= bin/$(HOSTYPE)
-OBJDIR			:= obj/$(HOSTYPE)
+GDBSERVER_PORT_x86_64	:= 2331
+GDBSERVER_PORT_aarch64	:= 5531
+GDBSERVER_PORT_riscv64	:= 6631
 
-CFLAGS			+= -DHOSTTYPE=$(HOSTYPE)
+GDBSERVER_PORT		:= $(GDBSERVER_PORT_$(TARGET_ARCH))
+
+BINDIR			:= bin/$(HOST_ARCH)
+OBJDIR			:= obj/$(HOST_ARCH)
+
+CFLAGS			+= -DHOST_ARCH$(HOST_ARCH)
 CFLAGS			+= -Wextra
 CFLAGS			+= -Wno-unused-parameter
 CFLAGS			+= -Wno-unused-result

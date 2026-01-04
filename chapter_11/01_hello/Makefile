@@ -19,7 +19,7 @@ uftrace_kernel_tracing_3: $(ELF_FILE)
 	sudo uftrace --no-pager -K 2 -F *write@kernel $<
 
 uftrace_preload_1: $(OUTPUT)
-	LD_PRELOAD=../05_preload/bin/$(HOSTYPE)/preload.so.0.0.0 $<
+	LD_PRELOAD=../05_preload/bin/$(HOST_ARCH)/preload.so.0.0.0 $<
 
 .PHONY: uftrace
 .PHONY: uftrace_kernel_tracing_1
