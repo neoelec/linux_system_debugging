@@ -73,7 +73,7 @@ int main(int argc, char *argv[])
                        regs.regs[2]);
                 flag = 1;
             } else if (flag == 1) {
-                printf(" = %lld\n", regs.regs[8]);
+                printf(" -> x0 = %lld\n", regs.regs[0]);
                 flag = 0;
             }
         }

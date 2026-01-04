@@ -67,7 +67,7 @@ int main(int argc, char *argv[])
                        regs.rdx);
                 flag = 1;
             } else if (flag == 1) {
-                printf(" = %llu\n", regs.orig_rax);
+                printf(" -> rax = %lld\n", regs.rax);
                 flag = 0;
             }
         }

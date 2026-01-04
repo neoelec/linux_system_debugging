@@ -23,43 +23,43 @@
 ```
 
 ```
-openat(0xffffff9c, "/etc/ld.so.cache", 0x80000) = 257
-openat(0xffffff9c, "/lib/x86_64-linux-gnu/libselinux.so.1", 0x80000) = 257
-openat(0xffffff9c, "/lib/x86_64-linux-gnu/libcap.so.2", 0x80000) = 257
-openat(0xffffff9c, "/lib/x86_64-linux-gnu/libc.so.6", 0x80000) = 257
-openat(0xffffff9c, "/lib/x86_64-linux-gnu/libpcre2-8.so.0", 0x80000) = 257
-openat(0xffffffffffffff9c, "/proc/filesystems", 0x80000) = 257
-openat(0xffffff9c, "/usr/lib/locale/locale-archive", 0x80000) = 257
-openat(0xffffff9c, "/usr/share/locale/locale.alias", 0x80000) = 257
-openat(0xffffff9c, "/usr/lib/locale/ko_KR.UTF-8/LC_IDENTIFICATION", 0x80000) = 257
-openat(0xffffff9c, "/usr/lib/locale/ko_KR.utf8/LC_IDENTIFICATION", 0x80000) = 257
-openat(0xffffff9c, "/usr/lib/x86_64-linux-gnu/gconv/gconv-modules.cache", 0x80000) = 257
-openat(0xffffff9c, "/usr/lib/locale/ko_KR.UTF-8/LC_MEASUREMENT", 0x80000) = 257
-openat(0xffffff9c, "/usr/lib/locale/ko_KR.utf8/LC_MEASUREMENT", 0x80000) = 257
-openat(0xffffff9c, "/usr/lib/locale/ko_KR.UTF-8/LC_TELEPHONE", 0x80000) = 257
-openat(0xffffff9c, "/usr/lib/locale/ko_KR.utf8/LC_TELEPHONE", 0x80000) = 257
-openat(0xffffff9c, "/usr/lib/locale/ko_KR.UTF-8/LC_ADDRESS", 0x80000) = 257
-openat(0xffffff9c, "/usr/lib/locale/ko_KR.utf8/LC_ADDRESS", 0x80000) = 257
-openat(0xffffff9c, "/usr/lib/locale/ko_KR.UTF-8/LC_NAME", 0x80000) = 257
-openat(0xffffff9c, "/usr/lib/locale/ko_KR.utf8/LC_NAME", 0x80000) = 257
-openat(0xffffff9c, "/usr/lib/locale/ko_KR.UTF-8/LC_PAPER", 0x80000) = 257
-openat(0xffffff9c, "/usr/lib/locale/ko_KR.utf8/LC_PAPER", 0x80000) = 257
-openat(0xffffff9c, "/usr/lib/locale/ko_KR.UTF-8/LC_MESSAGES", 0x80000) = 257
-openat(0xffffff9c, "/usr/lib/locale/ko_KR.utf8/LC_MESSAGES", 0x80000) = 257
-openat(0xffffff9c, "/usr/lib/locale/ko_KR.utf8/LC_MESSAGES/SYS_LC_MESSAGES", 0x80000) = 257
-openat(0xffffff9c, "/usr/lib/locale/ko_KR.UTF-8/LC_MONETARY", 0x80000) = 257
-openat(0xffffff9c, "/usr/lib/locale/ko_KR.utf8/LC_MONETARY", 0x80000) = 257
-openat(0xffffff9c, "/usr/lib/locale/ko_KR.UTF-8/LC_COLLATE", 0x80000) = 257
-openat(0xffffff9c, "/usr/lib/locale/ko_KR.utf8/LC_COLLATE", 0x80000) = 257
-openat(0xffffff9c, "/usr/lib/locale/ko_KR.UTF-8/LC_TIME", 0x80000) = 257
-openat(0xffffff9c, "/usr/lib/locale/ko_KR.utf8/LC_TIME", 0x80000) = 257
-openat(0xffffff9c, "/usr/lib/locale/ko_KR.UTF-8/LC_NUMERIC", 0x80000) = 257
-openat(0xffffff9c, "/usr/lib/locale/ko_KR.utf8/LC_NUMERIC", 0x80000) = 257
-openat(0xffffff9c, "/usr/lib/locale/ko_KR.UTF-8/LC_CTYPE", 0x80000) = 257
-openat(0xffffff9c, "/usr/lib/locale/ko_KR.utf8/LC_CTYPE", 0x80000) = 257
-openat(0xffffff9c, ".", 0x90800) = 257
+openat(0xffffff9c, "/etc/ld.so.cache", 0x80000) -> rax = 3
+openat(0xffffff9c, "/lib/x86_64-linux-gnu/libselinux.so.1", 0x80000) -> rax = 3
+openat(0xffffff9c, "/lib/x86_64-linux-gnu/libcap.so.2", 0x80000) -> rax = 3
+openat(0xffffff9c, "/lib/x86_64-linux-gnu/libc.so.6", 0x80000) -> rax = 3
+openat(0xffffff9c, "/lib/x86_64-linux-gnu/libpcre2-8.so.0", 0x80000) -> rax = 3
+openat(0xffffffffffffff9c, "/proc/filesystems", 0x80000) -> rax = 3
+openat(0xffffff9c, "/usr/lib/locale/locale-archive", 0x80000) -> rax = -2
+openat(0xffffff9c, "/usr/share/locale/locale.alias", 0x80000) -> rax = 3
+openat(0xffffff9c, "/usr/lib/locale/ko_KR.UTF-8/LC_IDENTIFICATION", 0x80000) -> rax = -2
+openat(0xffffff9c, "/usr/lib/locale/ko_KR.utf8/LC_IDENTIFICATION", 0x80000) -> rax = 3
+openat(0xffffff9c, "/usr/lib/x86_64-linux-gnu/gconv/gconv-modules.cache", 0x80000) -> rax = 3
+openat(0xffffff9c, "/usr/lib/locale/ko_KR.UTF-8/LC_MEASUREMENT", 0x80000) -> rax = -2
+openat(0xffffff9c, "/usr/lib/locale/ko_KR.utf8/LC_MEASUREMENT", 0x80000) -> rax = 3
+openat(0xffffff9c, "/usr/lib/locale/ko_KR.UTF-8/LC_TELEPHONE", 0x80000) -> rax = -2
+openat(0xffffff9c, "/usr/lib/locale/ko_KR.utf8/LC_TELEPHONE", 0x80000) -> rax = 3
+openat(0xffffff9c, "/usr/lib/locale/ko_KR.UTF-8/LC_ADDRESS", 0x80000) -> rax = -2
+openat(0xffffff9c, "/usr/lib/locale/ko_KR.utf8/LC_ADDRESS", 0x80000) -> rax = 3
+openat(0xffffff9c, "/usr/lib/locale/ko_KR.UTF-8/LC_NAME", 0x80000) -> rax = -2
+openat(0xffffff9c, "/usr/lib/locale/ko_KR.utf8/LC_NAME", 0x80000) -> rax = 3
+openat(0xffffff9c, "/usr/lib/locale/ko_KR.UTF-8/LC_PAPER", 0x80000) -> rax = -2
+openat(0xffffff9c, "/usr/lib/locale/ko_KR.utf8/LC_PAPER", 0x80000) -> rax = 3
+openat(0xffffff9c, "/usr/lib/locale/ko_KR.UTF-8/LC_MESSAGES", 0x80000) -> rax = -2
+openat(0xffffff9c, "/usr/lib/locale/ko_KR.utf8/LC_MESSAGES", 0x80000) -> rax = 3
+openat(0xffffff9c, "/usr/lib/locale/ko_KR.utf8/LC_MESSAGES/SYS_LC_MESSAGES", 0x80000) -> rax = 3
+openat(0xffffff9c, "/usr/lib/locale/ko_KR.UTF-8/LC_MONETARY", 0x80000) -> rax = -2
+openat(0xffffff9c, "/usr/lib/locale/ko_KR.utf8/LC_MONETARY", 0x80000) -> rax = 3
+openat(0xffffff9c, "/usr/lib/locale/ko_KR.UTF-8/LC_COLLATE", 0x80000) -> rax = -2
+openat(0xffffff9c, "/usr/lib/locale/ko_KR.utf8/LC_COLLATE", 0x80000) -> rax = 3
+openat(0xffffff9c, "/usr/lib/locale/ko_KR.UTF-8/LC_TIME", 0x80000) -> rax = -2
+openat(0xffffff9c, "/usr/lib/locale/ko_KR.utf8/LC_TIME", 0x80000) -> rax = 3
+openat(0xffffff9c, "/usr/lib/locale/ko_KR.UTF-8/LC_NUMERIC", 0x80000) -> rax = -2
+openat(0xffffff9c, "/usr/lib/locale/ko_KR.utf8/LC_NUMERIC", 0x80000) -> rax = 3
+openat(0xffffff9c, "/usr/lib/locale/ko_KR.UTF-8/LC_CTYPE", 0x80000) -> rax = -2
+openat(0xffffff9c, "/usr/lib/locale/ko_KR.utf8/LC_CTYPE", 0x80000) -> rax = 3
+openat(0xffffff9c, ".", 0x90800) -> rax = 3
 Makefile  README.md  bin  custom.cmm  my_strace.aarch64.c  my_strace.riscv64.c  my_strace.x86_64.c  obj
-child 19764 was normal exit.
+child 46868 was normal exit.
 ```
 
 #### aarch64
@@ -78,43 +78,43 @@ child 19764 was normal exit.
 ```
 
 ```
-openat(0xffffffffffffff9c, "/etc/ld.so.cache", 0x80000) = 56
-openat(0xffffffffffffff9c, "/lib/aarch64-linux-gnu/libselinux.so.1", 0x80000) = 56
-openat(0xffffffffffffff9c, "/lib/aarch64-linux-gnu/libcap.so.2", 0x80000) = 56
-openat(0xffffffffffffff9c, "/lib/aarch64-linux-gnu/libc.so.6", 0x80000) = 56
-openat(0xffffffffffffff9c, "/lib/aarch64-linux-gnu/libpcre2-8.so.0", 0x80000) = 56
-openat(0xffffffffffffff9c, "/proc/filesystems", 0x80000) = 56
-openat(0xffffffffffffff9c, "/usr/lib/locale/locale-archive", 0x80000) = 56
-openat(0xffffffffffffff9c, "/usr/share/locale/locale.alias", 0x80000) = 56
-openat(0xffffffffffffff9c, "/usr/lib/locale/C.UTF-8/LC_IDENTIFICATION", 0x80000) = 56
-openat(0xffffffffffffff9c, "/usr/lib/locale/C.utf8/LC_IDENTIFICATION", 0x80000) = 56
-openat(0xffffffffffffff9c, "/usr/lib/aarch64-linux-gnu/gconv/gconv-modules.cache", 0x80000) = 56
-openat(0xffffffffffffff9c, "/usr/lib/locale/C.UTF-8/LC_MEASUREMENT", 0x80000) = 56
-openat(0xffffffffffffff9c, "/usr/lib/locale/C.utf8/LC_MEASUREMENT", 0x80000) = 56
-openat(0xffffffffffffff9c, "/usr/lib/locale/C.UTF-8/LC_TELEPHONE", 0x80000) = 56
-openat(0xffffffffffffff9c, "/usr/lib/locale/C.utf8/LC_TELEPHONE", 0x80000) = 56
-openat(0xffffffffffffff9c, "/usr/lib/locale/C.UTF-8/LC_ADDRESS", 0x80000) = 56
-openat(0xffffffffffffff9c, "/usr/lib/locale/C.utf8/LC_ADDRESS", 0x80000) = 56
-openat(0xffffffffffffff9c, "/usr/lib/locale/C.UTF-8/LC_NAME", 0x80000) = 56
-openat(0xffffffffffffff9c, "/usr/lib/locale/C.utf8/LC_NAME", 0x80000) = 56
-openat(0xffffffffffffff9c, "/usr/lib/locale/C.UTF-8/LC_PAPER", 0x80000) = 56
-openat(0xffffffffffffff9c, "/usr/lib/locale/C.utf8/LC_PAPER", 0x80000) = 56
-openat(0xffffffffffffff9c, "/usr/lib/locale/C.UTF-8/LC_MESSAGES", 0x80000) = 56
-openat(0xffffffffffffff9c, "/usr/lib/locale/C.utf8/LC_MESSAGES", 0x80000) = 56
-openat(0xffffffffffffff9c, "/usr/lib/locale/C.utf8/LC_MESSAGES/SYS_LC_MESSAGES", 0x80000) = 56
-openat(0xffffffffffffff9c, "/usr/lib/locale/C.UTF-8/LC_MONETARY", 0x80000) = 56
-openat(0xffffffffffffff9c, "/usr/lib/locale/C.utf8/LC_MONETARY", 0x80000) = 56
-openat(0xffffffffffffff9c, "/usr/lib/locale/C.UTF-8/LC_COLLATE", 0x80000) = 56
-openat(0xffffffffffffff9c, "/usr/lib/locale/C.utf8/LC_COLLATE", 0x80000) = 56
-openat(0xffffffffffffff9c, "/usr/lib/locale/C.UTF-8/LC_TIME", 0x80000) = 56
-openat(0xffffffffffffff9c, "/usr/lib/locale/C.utf8/LC_TIME", 0x80000) = 56
-openat(0xffffffffffffff9c, "/usr/lib/locale/C.UTF-8/LC_NUMERIC", 0x80000) = 56
-openat(0xffffffffffffff9c, "/usr/lib/locale/C.utf8/LC_NUMERIC", 0x80000) = 56
-openat(0xffffffffffffff9c, "/usr/lib/locale/C.UTF-8/LC_CTYPE", 0x80000) = 56
-openat(0xffffffffffffff9c, "/usr/lib/locale/C.utf8/LC_CTYPE", 0x80000) = 56
-openat(0xffffffffffffff9c, ".", 0x84800) = 56
-Makefile  bin  custom.cmm  my_strace.aarch64.c	my_strace.riscv64.c  my_strace.x86_64.c  obj
-child 617 was normal exit.
+openat(0xffffffffffffff9c, "/etc/ld.so.cache", 0x80000) -> x0 = 3
+openat(0xffffffffffffff9c, "/lib/aarch64-linux-gnu/libselinux.so.1", 0x80000) -> x0 = 3
+openat(0xffffffffffffff9c, "/lib/aarch64-linux-gnu/libcap.so.2", 0x80000) -> x0 = 3
+openat(0xffffffffffffff9c, "/lib/aarch64-linux-gnu/libc.so.6", 0x80000) -> x0 = 3
+openat(0xffffffffffffff9c, "/lib/aarch64-linux-gnu/libpcre2-8.so.0", 0x80000) -> x0 = 3
+openat(0xffffffffffffff9c, "/proc/filesystems", 0x80000) -> x0 = 3
+openat(0xffffffffffffff9c, "/usr/lib/locale/locale-archive", 0x80000) -> x0 = -2
+openat(0xffffffffffffff9c, "/usr/share/locale/locale.alias", 0x80000) -> x0 = -2
+openat(0xffffffffffffff9c, "/usr/lib/locale/C.UTF-8/LC_IDENTIFICATION", 0x80000) -> x0 = -2
+openat(0xffffffffffffff9c, "/usr/lib/locale/C.utf8/LC_IDENTIFICATION", 0x80000) -> x0 = 3
+openat(0xffffffffffffff9c, "/usr/lib/aarch64-linux-gnu/gconv/gconv-modules.cache", 0x80000) -> x0 = 3
+openat(0xffffffffffffff9c, "/usr/lib/locale/C.UTF-8/LC_MEASUREMENT", 0x80000) -> x0 = -2
+openat(0xffffffffffffff9c, "/usr/lib/locale/C.utf8/LC_MEASUREMENT", 0x80000) -> x0 = 3
+openat(0xffffffffffffff9c, "/usr/lib/locale/C.UTF-8/LC_TELEPHONE", 0x80000) -> x0 = -2
+openat(0xffffffffffffff9c, "/usr/lib/locale/C.utf8/LC_TELEPHONE", 0x80000) -> x0 = 3
+openat(0xffffffffffffff9c, "/usr/lib/locale/C.UTF-8/LC_ADDRESS", 0x80000) -> x0 = -2
+openat(0xffffffffffffff9c, "/usr/lib/locale/C.utf8/LC_ADDRESS", 0x80000) -> x0 = 3
+openat(0xffffffffffffff9c, "/usr/lib/locale/C.UTF-8/LC_NAME", 0x80000) -> x0 = -2
+openat(0xffffffffffffff9c, "/usr/lib/locale/C.utf8/LC_NAME", 0x80000) -> x0 = 3
+openat(0xffffffffffffff9c, "/usr/lib/locale/C.UTF-8/LC_PAPER", 0x80000) -> x0 = -2
+openat(0xffffffffffffff9c, "/usr/lib/locale/C.utf8/LC_PAPER", 0x80000) -> x0 = 3
+openat(0xffffffffffffff9c, "/usr/lib/locale/C.UTF-8/LC_MESSAGES", 0x80000) -> x0 = -2
+openat(0xffffffffffffff9c, "/usr/lib/locale/C.utf8/LC_MESSAGES", 0x80000) -> x0 = 3
+openat(0xffffffffffffff9c, "/usr/lib/locale/C.utf8/LC_MESSAGES/SYS_LC_MESSAGES", 0x80000) -> x0 = 3
+openat(0xffffffffffffff9c, "/usr/lib/locale/C.UTF-8/LC_MONETARY", 0x80000) -> x0 = -2
+openat(0xffffffffffffff9c, "/usr/lib/locale/C.utf8/LC_MONETARY", 0x80000) -> x0 = 3
+openat(0xffffffffffffff9c, "/usr/lib/locale/C.UTF-8/LC_COLLATE", 0x80000) -> x0 = -2
+openat(0xffffffffffffff9c, "/usr/lib/locale/C.utf8/LC_COLLATE", 0x80000) -> x0 = 3
+openat(0xffffffffffffff9c, "/usr/lib/locale/C.UTF-8/LC_TIME", 0x80000) -> x0 = -2
+openat(0xffffffffffffff9c, "/usr/lib/locale/C.utf8/LC_TIME", 0x80000) -> x0 = 3
+openat(0xffffffffffffff9c, "/usr/lib/locale/C.UTF-8/LC_NUMERIC", 0x80000) -> x0 = -2
+openat(0xffffffffffffff9c, "/usr/lib/locale/C.utf8/LC_NUMERIC", 0x80000) -> x0 = 3
+openat(0xffffffffffffff9c, "/usr/lib/locale/C.UTF-8/LC_CTYPE", 0x80000) -> x0 = -2
+openat(0xffffffffffffff9c, "/usr/lib/locale/C.utf8/LC_CTYPE", 0x80000) -> x0 = 3
+openat(0xffffffffffffff9c, ".", 0x84800) -> x0 = 3
+Makefile  README.md  bin  custom.cmm  my_strace.aarch64.c  my_strace.riscv64.c	my_strace.x86_64.c  obj
+child 859 was normal exit.
 ```
 
 #### riscv64
@@ -132,41 +132,41 @@ child 617 was normal exit.
 ```
 
 ```
-openat(0xffffffffffffffda, "/etc/ld.so.cache", 0x80000) = 56
-openat(0xffffffffffffffda, "/lib/riscv64-linux-gnu/libselinux.so.1", 0x80000) = 56
-openat(0xffffffffffffffda, "/lib/riscv64-linux-gnu/libcap.so.2", 0x80000) = 56
-openat(0xffffffffffffffda, "/lib/riscv64-linux-gnu/libc.so.6", 0x80000) = 56
-openat(0xffffffffffffffda, "/lib/riscv64-linux-gnu/libpcre2-8.so.0", 0x80000) = 56
-openat(0xffffffffffffffda, "/proc/filesystems", 0x80000) = 56
-openat(0xffffffffffffffda, "/usr/lib/locale/locale-archive", 0x80000) = 56
-openat(0xffffffffffffffda, "/usr/share/locale/locale.alias", 0x80000) = 56
-openat(0xffffffffffffffda, "/usr/lib/locale/C.UTF-8/LC_IDENTIFICATION", 0x80000) = 56
-openat(0xffffffffffffffda, "/usr/lib/locale/C.utf8/LC_IDENTIFICATION", 0x80000) = 56
-openat(0xffffffffffffffda, "/usr/lib/riscv64-linux-gnu/gconv/gconv-modules.cache", 0x80000) = 56
-openat(0xffffffffffffffda, "/usr/lib/locale/C.UTF-8/LC_MEASUREMENT", 0x80000) = 56
-openat(0xffffffffffffffda, "/usr/lib/locale/C.utf8/LC_MEASUREMENT", 0x80000) = 56
-openat(0xffffffffffffffda, "/usr/lib/locale/C.UTF-8/LC_TELEPHONE", 0x80000) = 56
-openat(0xffffffffffffffda, "/usr/lib/locale/C.utf8/LC_TELEPHONE", 0x80000) = 56
-openat(0xffffffffffffffda, "/usr/lib/locale/C.UTF-8/LC_ADDRESS", 0x80000) = 56
-openat(0xffffffffffffffda, "/usr/lib/locale/C.utf8/LC_ADDRESS", 0x80000) = 56
-openat(0xffffffffffffffda, "/usr/lib/locale/C.UTF-8/LC_NAME", 0x80000) = 56
-openat(0xffffffffffffffda, "/usr/lib/locale/C.utf8/LC_NAME", 0x80000) = 56
-openat(0xffffffffffffffda, "/usr/lib/locale/C.UTF-8/LC_PAPER", 0x80000) = 56
-openat(0xffffffffffffffda, "/usr/lib/locale/C.utf8/LC_PAPER", 0x80000) = 56
-openat(0xffffffffffffffda, "/usr/lib/locale/C.UTF-8/LC_MESSAGES", 0x80000) = 56
-openat(0xffffffffffffffda, "/usr/lib/locale/C.utf8/LC_MESSAGES", 0x80000) = 56
-openat(0xffffffffffffffda, "/usr/lib/locale/C.utf8/LC_MESSAGES/SYS_LC_MESSAGES", 0x80000) = 56
-openat(0xffffffffffffffda, "/usr/lib/locale/C.UTF-8/LC_MONETARY", 0x80000) = 56
-openat(0xffffffffffffffda, "/usr/lib/locale/C.utf8/LC_MONETARY", 0x80000) = 56
-openat(0xffffffffffffffda, "/usr/lib/locale/C.UTF-8/LC_COLLATE", 0x80000) = 56
-openat(0xffffffffffffffda, "/usr/lib/locale/C.utf8/LC_COLLATE", 0x80000) = 56
-openat(0xffffffffffffffda, "/usr/lib/locale/C.UTF-8/LC_TIME", 0x80000) = 56
-openat(0xffffffffffffffda, "/usr/lib/locale/C.utf8/LC_TIME", 0x80000) = 56
-openat(0xffffffffffffffda, "/usr/lib/locale/C.UTF-8/LC_NUMERIC", 0x80000) = 56
-openat(0xffffffffffffffda, "/usr/lib/locale/C.utf8/LC_NUMERIC", 0x80000) = 56
-openat(0xffffffffffffffda, "/usr/lib/locale/C.UTF-8/LC_CTYPE", 0x80000) = 56
-openat(0xffffffffffffffda, "/usr/lib/locale/C.utf8/LC_CTYPE", 0x80000) = 56
-openat(0xffffffffffffffda, ".", 0x90800) = 56
+openat(0xffffffffffffffda, "/etc/ld.so.cache", 0x80000) -> a0 = 3
+openat(0xffffffffffffffda, "/lib/riscv64-linux-gnu/libselinux.so.1", 0x80000) -> a0 = 3
+openat(0xffffffffffffffda, "/lib/riscv64-linux-gnu/libcap.so.2", 0x80000) -> a0 = 3
+openat(0xffffffffffffffda, "/lib/riscv64-linux-gnu/libc.so.6", 0x80000) -> a0 = 3
+openat(0xffffffffffffffda, "/lib/riscv64-linux-gnu/libpcre2-8.so.0", 0x80000) -> a0 = 3
+openat(0xffffffffffffffda, "/proc/filesystems", 0x80000) -> a0 = 3
+openat(0xffffffffffffffda, "/usr/lib/locale/locale-archive", 0x80000) -> a0 = -2
+openat(0xffffffffffffffda, "/usr/share/locale/locale.alias", 0x80000) -> a0 = -2
+openat(0xffffffffffffffda, "/usr/lib/locale/C.UTF-8/LC_IDENTIFICATION", 0x80000) -> a0 = -2
+openat(0xffffffffffffffda, "/usr/lib/locale/C.utf8/LC_IDENTIFICATION", 0x80000) -> a0 = 3
+openat(0xffffffffffffffda, "/usr/lib/riscv64-linux-gnu/gconv/gconv-modules.cache", 0x80000) -> a0 = 3
+openat(0xffffffffffffffda, "/usr/lib/locale/C.UTF-8/LC_MEASUREMENT", 0x80000) -> a0 = -2
+openat(0xffffffffffffffda, "/usr/lib/locale/C.utf8/LC_MEASUREMENT", 0x80000) -> a0 = 3
+openat(0xffffffffffffffda, "/usr/lib/locale/C.UTF-8/LC_TELEPHONE", 0x80000) -> a0 = -2
+openat(0xffffffffffffffda, "/usr/lib/locale/C.utf8/LC_TELEPHONE", 0x80000) -> a0 = 3
+openat(0xffffffffffffffda, "/usr/lib/locale/C.UTF-8/LC_ADDRESS", 0x80000) -> a0 = -2
+openat(0xffffffffffffffda, "/usr/lib/locale/C.utf8/LC_ADDRESS", 0x80000) -> a0 = 3
+openat(0xffffffffffffffda, "/usr/lib/locale/C.UTF-8/LC_NAME", 0x80000) -> a0 = -2
+openat(0xffffffffffffffda, "/usr/lib/locale/C.utf8/LC_NAME", 0x80000) -> a0 = 3
+openat(0xffffffffffffffda, "/usr/lib/locale/C.UTF-8/LC_PAPER", 0x80000) -> a0 = -2
+openat(0xffffffffffffffda, "/usr/lib/locale/C.utf8/LC_PAPER", 0x80000) -> a0 = 3
+openat(0xffffffffffffffda, "/usr/lib/locale/C.UTF-8/LC_MESSAGES", 0x80000) -> a0 = -2
+openat(0xffffffffffffffda, "/usr/lib/locale/C.utf8/LC_MESSAGES", 0x80000) -> a0 = 3
+openat(0xffffffffffffffda, "/usr/lib/locale/C.utf8/LC_MESSAGES/SYS_LC_MESSAGES", 0x80000) -> a0 = 3
+openat(0xffffffffffffffda, "/usr/lib/locale/C.UTF-8/LC_MONETARY", 0x80000) -> a0 = -2
+openat(0xffffffffffffffda, "/usr/lib/locale/C.utf8/LC_MONETARY", 0x80000) -> a0 = 3
+openat(0xffffffffffffffda, "/usr/lib/locale/C.UTF-8/LC_COLLATE", 0x80000) -> a0 = -2
+openat(0xffffffffffffffda, "/usr/lib/locale/C.utf8/LC_COLLATE", 0x80000) -> a0 = 3
+openat(0xffffffffffffffda, "/usr/lib/locale/C.UTF-8/LC_TIME", 0x80000) -> a0 = -2
+openat(0xffffffffffffffda, "/usr/lib/locale/C.utf8/LC_TIME", 0x80000) -> a0 = 3
+openat(0xffffffffffffffda, "/usr/lib/locale/C.UTF-8/LC_NUMERIC", 0x80000) -> a0 = -2
+openat(0xffffffffffffffda, "/usr/lib/locale/C.utf8/LC_NUMERIC", 0x80000) -> a0 = 3
+openat(0xffffffffffffffda, "/usr/lib/locale/C.UTF-8/LC_CTYPE", 0x80000) -> a0 = -2
+openat(0xffffffffffffffda, "/usr/lib/locale/C.utf8/LC_CTYPE", 0x80000) -> a0 = 3
+openat(0xffffffffffffffda, ".", 0x90800) -> a0 = 3
 Makefile  README.md  bin  custom.cmm  my_strace.aarch64.c  my_strace.riscv64.c	my_strace.x86_64.c  obj
-child 596 was normal exit.
+child 856 was normal exit.
 ```

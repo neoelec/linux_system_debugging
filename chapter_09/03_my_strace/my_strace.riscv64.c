@@ -74,7 +74,7 @@ int main(int argc, char *argv[])
                 printf("openat(0x%lx, \"%s\", 0x%lx)", regs.a0, buff, regs.a2);
                 flag = 1;
             } else if (flag == 1) {
-                printf(" = %lu\n", regs.a7);
+                printf(" -> a0 = %ld\n", regs.a0);
                 flag = 0;
             }
         }
