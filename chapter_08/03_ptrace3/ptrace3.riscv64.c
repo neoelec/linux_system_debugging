@@ -28,7 +28,7 @@ int main(int argc, char *argv[])
 
     pid = atoi(argv[1]);
 
-    ret = ptrace(PTRACE_ATTACH, pid, 0, 0);
+    ret = ptrace(PTRACE_ATTACH, pid, NULL, NULL);
     printf("return : %ld\n", ret);
 
     ptrace(PTRACE_GETREGSET, pid, (void *)NT_PRSTATUS, &io);
@@ -39,7 +39,7 @@ int main(int argc, char *argv[])
         printf("%.16lx\n", data);
     }
 
-    ptrace(PTRACE_DETACH, pid, 0, 0);
+    ptrace(PTRACE_DETACH, pid, NULL, NULL);
 
     return 0;
 }

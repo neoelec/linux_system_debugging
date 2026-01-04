@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
     pid = atoi(argv[1]);
     addr = strtoul(argv[2], NULL, 16);
 
-    ret = ptrace(PTRACE_ATTACH, pid, 0, 0);
+    ret = ptrace(PTRACE_ATTACH, pid, NULL, NULL);
     printf("return : %ld\n", ret);
 
     ptrace(PTRACE_GETREGS, pid, 0, &regs);
@@ -28,8 +28,8 @@ int main(int argc, char *argv[])
 
     ptrace(PTRACE_POKEDATA, pid, addr, 0x41414141);
 
-    ptrace(PTRACE_CONT, pid, 0, 0);
-    ptrace(PTRACE_DETACH, pid, 0, 0);
+    ptrace(PTRACE_CONT, pid, NULL, NULL);
+    ptrace(PTRACE_DETACH, pid, NULL, NULL);
 
     return 0;
 }

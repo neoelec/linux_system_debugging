@@ -40,8 +40,8 @@ int main(int argc, char *argv[])
     printf("stack sp  = 0x%.16llx\n", regs.sp);
     printf("pc        = 0x%.16llx\n", regs.pc);
 
-    ptrace(PTRACE_DETACH, pid, 0, 0);
-    /* ptrace(PTRACE_KILL, pid, 0, 0); */
+    ptrace(PTRACE_DETACH, pid, NULL, NULL);
+    /* ptrace(PTRACE_KILL, pid, NULL, NULL); */
 
     return 0;
 }

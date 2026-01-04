@@ -10,12 +10,12 @@ int main(int argc, char *argv[])
 
     pid = atoi(argv[1]);
 
-    ret = ptrace(PTRACE_ATTACH, pid, 0, 0);
+    ret = ptrace(PTRACE_ATTACH, pid, NULL, NULL);
 
     printf("(%d) return : %ld\n", pid, ret);
     getchar();
 
-    ptrace(PTRACE_DETACH, pid, 0, 0);
+    ptrace(PTRACE_DETACH, pid, NULL, NULL);
 
     return 0;
 }
