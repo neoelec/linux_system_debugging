@@ -10,7 +10,6 @@ int main(int argc, char *argv[])
     long ret;
     struct user_regs_struct regs;
     long data;
-    size_t i;
 
     if (argc < 2) {
         fprintf(stderr, "Usage) %s <PID>\n", argv[0]);
@@ -26,7 +25,7 @@ int main(int argc, char *argv[])
     ptrace(PTRACE_GETREGS, pid, 0, &regs);
     printf("stack = 0x%.16llx\n", regs.rsp);
 
-    for (i = 0; i < 20; i++) {
+    for (size_t i = 0; i < 20; i++) {
         data = ptrace(PTRACE_PEEKDATA, pid, regs.rsp + i * 8, 0);
         printf("%.16lx\n", data);
     }

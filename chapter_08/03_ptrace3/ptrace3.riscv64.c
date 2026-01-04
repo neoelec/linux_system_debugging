@@ -18,7 +18,6 @@ int main(int argc, char *argv[])
         .iov_len = sizeof(regs),
     };
     long data;
-    size_t i;
 
     if (argc < 2) {
         fprintf(stderr, "Usage) %s <PID>\n", argv[0]);
@@ -34,7 +33,7 @@ int main(int argc, char *argv[])
     ptrace(PTRACE_GETREGSET, pid, (void *)NT_PRSTATUS, &io);
     printf("stack = 0x%.16lx\n", regs.sp);
 
-    for (i = 0; i < 20; i++) {
+    for (size_t i = 0; i < 20; i++) {
         data = ptrace(PTRACE_PEEKDATA, pid, regs.sp + i * 8, 0);
         printf("%.16lx\n", data);
     }

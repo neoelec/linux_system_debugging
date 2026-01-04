@@ -15,7 +15,6 @@ int main(int argc, char *argv[])
         unsigned long l;
         unsigned char c[0];
     } data;
-    size_t i, j;
 
     if (argc < 2) {
         fprintf(stderr, "Usage) %s <PID>\n", argv[0]);
@@ -31,11 +30,11 @@ int main(int argc, char *argv[])
     ptrace(PTRACE_GETREGS, pid, 0, &regs);
     printf("stack = 0x%.16llx\n", regs.rsp);
 
-    for (i = 0; i < 300; i++) {
+    for (size_t i = 0; i < 300; i++) {
         data.l = ptrace(PTRACE_PEEKDATA, pid, regs.rsp + i * 8, 0);
         printf("%.16llx : ", regs.rsp + i * 8);
 
-        for (j = 0; j < sizeof(data); j++) {
+        for (size_t j = 0; j < sizeof(data); j++) {
             if (isprint(data.c[j])) {
                 printf("%c ", data.c[j]);
             } else {
