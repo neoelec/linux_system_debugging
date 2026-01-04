@@ -31,7 +31,6 @@ int main(int argc, char *argv[])
     int flag = 0;
     pid_t pid;
     int status;
-
     struct user_regs_struct regs;
 
     if (!(pid = fork())) {
@@ -42,9 +41,8 @@ int main(int argc, char *argv[])
     }
 
     while (1) {
-        wait(&status);
+        waitpid(pid, &status, 0);
 
-        /* printf("%x\n", status ); */
         if (WIFSIGNALED(status)) {
             fprintf(stderr, "child %d was abnormal exit.\n", pid);
 
@@ -57,24 +55,24 @@ int main(int argc, char *argv[])
             return -1;
         }
 
-        ptrace(PTRACE_GETREGSET, pid, 0, &regs);
+        ptrace(PTRACE_GETREGS, pid, NULL, &regs);
 
-        if (regs.orig_rax == SYS_open) {
+        if (regs.orig_rax == SYS_openat) {
             if (flag == 0) {
                 char buff[256] = {
                     0,
                 };
-                read_addr_into_buff(pid, regs.rdi, buff, 256);
-                printf("open(\"%s\")", buff);
+                read_addr_into_buff(pid, regs.rsi, buff, 256);
+                printf("openat(0x%llx, \"%s\", 0x%llx)", regs.rdi, buff,
+                       regs.rdx);
                 flag = 1;
             } else if (flag == 1) {
-                printf(" = %d\n", (int)regs.rax);
+                printf(" = %llu\n", regs.orig_rax);
                 flag = 0;
             }
         }
 
-        ptrace(PTRACE_SYSCALL, pid, 0, 0);
-        /* getchar(); */
+        ptrace(PTRACE_SYSCALL, pid, NULL, NULL);
     }
 
     return 0;

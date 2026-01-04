@@ -1,3 +1,5 @@
+#include <elf.h>
+#include <linux/uio.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -33,8 +35,11 @@ int main(int argc, char *argv[])
     int flag = 0;
     pid_t pid;
     int status;
-
     struct user_regs_struct regs;
+    struct iovec io = {
+        .iov_base = &regs,
+        .iov_len = sizeof(regs),
+    };
 
     if (!(pid = fork())) {
         ptrace(PTRACE_TRACEME, 0, 0, 0);
@@ -44,9 +49,8 @@ int main(int argc, char *argv[])
     }
 
     while (1) {
-        wait(&status);
+        waitpid(pid, &status, 0);
 
-        /* printf("%x\n", status ); */
         if (WIFSIGNALED(status)) {
             fprintf(stderr, "child %d was abnormal exit.\n", pid);
 
@@ -59,24 +63,23 @@ int main(int argc, char *argv[])
             return -1;
         }
 
-        ptrace(PTRACE_GETREGSET, pid, 0, &regs);
+        ptrace(PTRACE_GETREGSET, pid, (void *)NT_PRSTATUS, &io);
 
-        if (regs.ra == SYS_openat) {
+        if (regs.a7 == SYS_openat) {
             if (flag == 0) {
                 char buff[256] = {
                     0,
                 };
-                read_addr_into_buff(pid, regs.ra, buff, 256);
-                printf("open(\"%s\")", buff);
+                read_addr_into_buff(pid, regs.a1, buff, 256);
+                printf("openat(0x%lx, \"%s\", 0x%lx)", regs.a0, buff, regs.a2);
                 flag = 1;
             } else if (flag == 1) {
-                printf(" = %d\n", (int)regs.ra);
+                printf(" = %lu\n", regs.a7);
                 flag = 0;
             }
         }
 
-        ptrace(PTRACE_SYSCALL, pid, 0, 0);
-        /* getchar(); */
+        ptrace(PTRACE_SYSCALL, pid, NULL, NULL);
     }
 
     return 0;
