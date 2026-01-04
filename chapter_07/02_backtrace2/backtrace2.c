@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+extern char __executable_start;
+
 struct frame {
     struct frame *fp;
     void *ip;
@@ -14,7 +16,7 @@ void print_gnu2_backtrace(void)
 
     printf("Stack backtrace:\n");
 
-    while ((unsigned long)frame & (~0x7)) {
+    while (frame < frame->fp && frame->ip > (void *)&__executable_start) {
         printf("%03zu : [ip=%p]\n", i++, frame->ip);
         frame = frame->fp;
     }
