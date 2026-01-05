@@ -66,7 +66,7 @@ child 46868 was normal exit.
 |Purpose|Register(s)|
 |-|-|
 |System Call Number|`x8`|
-|Arguments 0-8|`x0` - `x7`|
+|Arguments 1-6|`x0` - `x5`|
 |Return Value|`x0` / `x1`|
 
 ```c
@@ -121,8 +121,8 @@ child 859 was normal exit.
 |Purpose|Register|ABI Name|
 |-|-|-|
 |System Call Number|`x17`|`a7`|
-|Arguments 0-6|`x10` - `x16`|`a0` - `a6`|
-|Return VAlue|`x10`|`a0`|
+|Arguments 1-6|`x10` - `x15`|`a0` - `a5`|
+|Return Value|`x10`|`a0`|
 
 ```c
         if (regs.a7 == SYS_openat) {
