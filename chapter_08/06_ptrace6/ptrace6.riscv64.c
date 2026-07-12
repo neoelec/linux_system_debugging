@@ -28,7 +28,7 @@ int main(int argc, char *argv[])
         return 0;
     }
 
-    wait(&status);
+    waitpid(pid, &status, 0);
     printf("status=%x\n", status);
 
     if (WIFSIGNALED(status)) {
