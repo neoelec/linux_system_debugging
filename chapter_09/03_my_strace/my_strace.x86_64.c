@@ -21,8 +21,10 @@ int read_addr_into_buff(const pid_t pid, const unsigned long long addr,
         ret = ptrace(PTRACE_PEEKTEXT, pid, (read_addr++), NULL);
         *(copy_addr++) = ret;
         bytes_read += sizeof(long);
-        if (memchr(&ret, 0, sizeof(ret)) != NULL)
+
+        if (memchr(&ret, 0, sizeof(ret)) != NULL) {
             break;
+        }
     } while (bytes_read < (buff_size - sizeof(long)));
 
     return bytes_read;
@@ -35,15 +37,29 @@ int main(int argc, char *argv[])
     int status;
     struct user_regs_struct regs;
 
-    if (!(pid = fork())) {
-        ptrace(PTRACE_TRACEME, 0, 0, 0);
-        execl("/bin/ls", "/bin/ls", NULL);
+    pid = fork();
 
-        return 0;
+    if (pid < 0) {
+        perror("fork");
+        return -1;
+    }
+
+    if (!pid) {
+        if (ptrace(PTRACE_TRACEME, 0, 0, 0) < 0) {
+            perror("ptrace TRACEME");
+            return -1;
+        }
+
+        execl("/bin/ls", "/bin/ls", NULL);
+        perror("execl");
+        return -1;
     }
 
     while (1) {
-        waitpid(pid, &status, 0);
+        if (waitpid(pid, &status, 0) < 0) {
+            perror("waitpid");
+            return -1;
+        }
 
         if (WIFSIGNALED(status)) {
             fprintf(stderr, "child %d was abnormal exit.\n", pid);
@@ -57,7 +73,10 @@ int main(int argc, char *argv[])
             return 0;
         }
 
-        ptrace(PTRACE_GETREGS, pid, NULL, &regs);
+        if (ptrace(PTRACE_GETREGS, pid, NULL, &regs) < 0) {
+            perror("ptrace GETREGS");
+            return -1;
+        }
 
         if (regs.orig_rax == SYS_openat) {
             if (flag == 0) {
@@ -74,7 +93,10 @@ int main(int argc, char *argv[])
             }
         }
 
-        ptrace(PTRACE_SYSCALL, pid, NULL, NULL);
+        if (ptrace(PTRACE_SYSCALL, pid, NULL, NULL) < 0) {
+            perror("ptrace SYSCALL");
+            return -1;
+        }
     }
 
     return 0;

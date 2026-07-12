@@ -13,14 +13,29 @@ int main(int argc, char *argv[])
     long ret;
     struct user_regs_struct regs;
 
-    if (!(pid = fork())) {
-        ptrace(PTRACE_TRACEME, 0, 0, 0);
-        execl("/bin/ls", "/bin/ls", NULL);
+    pid = fork();
 
-        return 0;
+    if (pid < 0) {
+        perror("fork");
+        return -1;
     }
 
-    waitpid(pid, &status, 0);
+    if (!pid) {
+        if (ptrace(PTRACE_TRACEME, 0, 0, 0) < 0) {
+            perror("ptrace TRACEME");
+            return -1;
+        }
+
+        execl("/bin/ls", "/bin/ls", NULL);
+        perror("execl");
+        return -1;
+    }
+
+    if (waitpid(pid, &status, 0) < 0) {
+        perror("waitpid");
+        return -1;
+    }
+
     printf("status=%x\n", status);
 
     if (WIFSIGNALED(status)) {
@@ -36,11 +51,21 @@ int main(int argc, char *argv[])
     }
 
     ret = ptrace(PTRACE_GETREGS, pid, 0, &regs);
+
+    if (ret < 0) {
+        perror("ptrace GETREGS");
+        return -1;
+    }
+
     printf("return : %ld\n", ret);
     printf("stack rsp = 0x%.16llx\n", regs.rsp);
     printf("rip       = 0x%.16llx\n", regs.rip);
 
-    ptrace(PTRACE_DETACH, pid, NULL, NULL);
+    if (ptrace(PTRACE_DETACH, pid, NULL, NULL) < 0) {
+        perror("ptrace DETACH");
+        return -1;
+    }
+
     /* ptrace(PTRACE_KILL, pid, NULL, NULL); */
 
     return 0;

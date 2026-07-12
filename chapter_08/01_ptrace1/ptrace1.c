@@ -12,10 +12,18 @@ int main(int argc, char *argv[])
 
     ret = ptrace(PTRACE_ATTACH, pid, NULL, NULL);
 
+    if (ret < 0) {
+        perror("ptrace ATTACH");
+        return -1;
+    }
+
     printf("(%d) return : %ld\n", pid, ret);
     getchar();
 
-    ptrace(PTRACE_DETACH, pid, NULL, NULL);
+    if (ptrace(PTRACE_DETACH, pid, NULL, NULL) < 0) {
+        perror("ptrace DETACH");
+        return -1;
+    }
 
     return 0;
 }
