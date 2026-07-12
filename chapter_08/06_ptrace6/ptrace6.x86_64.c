@@ -29,6 +29,12 @@ int main(int argc, char *argv[])
         return -1;
     }
 
+    if (!WIFSTOPPED(status)) {
+        fprintf(stderr, "child process %d is not stopped.\n", pid);
+
+        return -1;
+    }
+
     ret = ptrace(PTRACE_GETREGS, pid, 0, &regs);
     printf("return : %ld\n", ret);
     printf("stack rsp = 0x%.16llx\n", regs.rsp);

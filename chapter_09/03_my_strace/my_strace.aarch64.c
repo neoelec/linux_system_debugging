@@ -23,7 +23,9 @@ int read_addr_into_buff(const pid_t pid, const unsigned long long addr,
         ret = ptrace(PTRACE_PEEKTEXT, pid, (read_addr++), NULL);
         *(copy_addr++) = ret;
         bytes_read += sizeof(long);
-    } while (ret && bytes_read < (buff_size - sizeof(long)));
+        if (memchr(&ret, 0, sizeof(ret)) != NULL)
+            break;
+    } while (bytes_read < (buff_size - sizeof(long)));
 
     return bytes_read;
 }
@@ -58,7 +60,7 @@ int main(int argc, char *argv[])
         if (WIFEXITED(status)) {
             fprintf(stderr, "child %d was normal exit.\n", pid);
 
-            return -1;
+            return 0;
         }
 
         ptrace(PTRACE_GETREGSET, pid, (void *)NT_PRSTATUS, &io);
